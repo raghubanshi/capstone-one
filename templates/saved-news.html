@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Saved News - News App{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">News App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/saved-news">Saved News</a>
+                </li>
+            </ul>
+
+            <form method="POST" action="/logout">
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+    </div>
+</nav>  
+<div class="container">
+    <h1>{{ user.username }}, Your Saved News</h1>
+    <div class="row" id="saved-news-list">
+        {% for article in saved_articles %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{article.url_to_image}}" class="card-img-top" alt="{{ article.title }}">
+                <div class="card-body">
+                  <a class="card-title" href="{{article.url}}" target="_blank">{{ article.title }}</a>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <button type="button" class="unsave-btn btn btn-danger" data-news-id="{{ article.id }}">Unsave</button>
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

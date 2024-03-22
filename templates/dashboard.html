@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "base.html" %}
+
+{% block title %}Dashboard - News App{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">News App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/saved-news">Saved News</a>
+                </li>
+
+            </ul>
+
+            <form method="POST" action="/logout">
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1>Welcome, {{ user.username }}</h1>
+
+        <form class="d-flex mb-3" role="search" id="search-form">
+            <input class="form-control me-2" type="search" id="search-input" placeholder="Search"
+                aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+    <form id="filter-form">
+        <select id="category" name="category">
+            <option value="business">Business</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="health">Health</option>
+            <option value="science">Science</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
+        </select>
+
+        <select name="country" id="country">
+            <option value="us">United States</option>
+            <option value="gb">United Kingdom</option>
+            <option value="au">Australia</option>
+            <option value="de">Germany</option>
+            <option value="fr">France</option>
+        </select>
+
+        <button type="button" id="filter-btn" class="btn btn-outline-warning">Filter</button>
+    </form>
+
+
+
+    <h2>Latest News</h2>
+    <div class="row" id="news-list">
+            <!-- News articles will be dynamically added here -->
+    </div>
+</div>
+
+{% endblock %}

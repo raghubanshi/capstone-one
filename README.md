@@ -8,7 +8,7 @@ News App
 # URL deployed at:
 https://capstone-one.onrender.com/
 
-#Setup
+# Setup
 
 First clone it to your local machine by running
 

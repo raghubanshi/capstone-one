@@ -8,6 +8,22 @@ News App
 # URL deployed at:
 https://capstone-one.onrender.com/
 
+#Setup
+
+First clone it to your local machine by running
+
+git clone https://github.com/magicmarie/book_a_meal.git
+cd book_a_meal
+
+Create virtual environment and activate it
+
+$ virtualenv venv
+$ source /venv/bin/activate
+
+Then install all the necessary dependencies
+
+pip install -r requirements.txt
+
 # about API key
 
 To run the website, we must create account at link provided for api that will provide us the api code. Then in app.py create a variable 

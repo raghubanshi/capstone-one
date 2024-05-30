@@ -12,13 +12,13 @@ https://capstone-one.onrender.com/
 
 First clone it to your local machine by running
 ```
-git clone https://github.com/magicmarie/book_a_meal.git
-cd book_a_meal
+git clone https://github.com/raghubanshi/capstone-one.git
+cd capstone-one
 ```
 
 Create virtual environment and activate it
 ```
-$ virtualenv venv
+$ python3 -m venv venv
 $ source /venv/bin/activate
 ```
 Then install all the necessary dependencies
@@ -29,6 +29,11 @@ pip install -r requirements.txt
 
 To run the website, we must create account at link provided for api that will provide us the api code. Then in app.py create a variable 
 API_KEY_FOR_NEWS and assign the value to the api code. Or create secrets_api.py file inside news-app directory and then create a variable API_KEY_FOR_NEWS and assign the value to the api code.
+
+To run the application, run the command below to start the application.
+```
+flask run --debug
+```
 
 # features:
 
